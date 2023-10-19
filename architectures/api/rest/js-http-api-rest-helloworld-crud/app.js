@@ -9,8 +9,8 @@ class Message {
 }
 
 class Error {
-  constructor( error ) {
-    this.error = error
+  constructor( text ) {
+    this.text = text
   }
 }
 
@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
   } else if ('get' == method) {
     handleRead(req, res);
   } else {
-    displayMessage(new Error('Resource Not Found'), res, 404);
+    displayMessage(new Error('Error: Resource Not Found'), res, 404);
   }
 
 });
@@ -56,6 +56,10 @@ function handleReadAll(res) {
 function handleRead(req, res) {
   const id = req.url.split("/")[1];
   const messageId = parseInt(id);
+  if (isNaN(messageId)) {
+    displayMessage(new Error('Specific ID Not Found'), res, 200);
+    return;
+  }
   const message = messages.find((c) => c.id === messageId)
   displayMessage(message, res, 200);
 }
