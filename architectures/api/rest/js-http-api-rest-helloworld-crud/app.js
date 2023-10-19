@@ -1,18 +1,7 @@
 const http = require('http');
+const Message = require('./models/message')
+const Info = require('./models/info')
 const port = 3000;
-
-class Message {
-  constructor({ id, text }) {
-    this.id = id
-    this.text = text
-  }
-}
-
-class Info {
-  constructor( info ) {
-    this.info = info
-  }
-}
 
 let messages = [];
 
