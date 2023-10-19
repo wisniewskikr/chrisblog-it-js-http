@@ -6,12 +6,10 @@ Structure:
 	* http
 	
 
-* js-http-api-helloworld-single
-* js-http-api-helloworld-multiple
-* js-http-gui-helloworld-single
-* js-http-gui-helloworld-multiple
-
-* js-express-api-helloworld-single
-* js-express-api-helloworld-multiple
-* js-express-gui-helloworld-single
-* js-express-gui-helloworld-multiple
+* js-http-api-rest-helloworld-single
+* js-http-api-rest-helloworld-multiple
+* js-http-api-rest-helloworld-crud
+* js-http-gui-html-helloworld-single
+* js-http-gui-html-helloworld-multiple
+* js-http-gui-html-helloworld-crud
+* js-http-gui-html-helloworld-single-css-js-image
