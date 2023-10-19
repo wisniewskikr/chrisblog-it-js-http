@@ -14,10 +14,7 @@ class Info {
   }
 }
 
-let messages = [
-  new Message({ id: 1, text: 'Hello World 1' }),
-  new Message({ id: 2, text: 'Hello World 2' })
-]
+let messages = [];
 
 const server = http.createServer((req, res) => {
 
@@ -30,7 +27,9 @@ const server = http.createServer((req, res) => {
   } else if ('post' == method) {
     handleCreate(req, res); 
   } else if ('put' == method) {
-    handleUpdate(req, res);  
+    handleUpdate(req, res);
+  } else if ('delete' == method) {
+    handleDelete(req, res);   
   } else {
     displayMessage(new Info('Error: Resource Not Found'), res, 404);
   }
@@ -95,4 +94,20 @@ function handleUpdate(req, res) {
     messages.push(message);
     displayMessage(new Info('New Message was updated'), res, 200);      
   });
+}
+
+function handleDelete(req, res) {
+  const id = req.url.split("/")[1];
+  const messageId = parseInt(id);
+  if (isNaN(messageId)) {
+    displayMessage(new Info('Specific ID Not Found'), res, 200);
+    return;
+  }
+  const messageCurrent = messages.find((c) => c.id === messageId)
+    if (!messageCurrent) {
+      displayMessage(new Info('Specific Message Not Found'), res, 200);
+      return; 
+    }
+    messages = messages.filter((c) => c.id !== messageId);
+    displayMessage(new Info('Message was deleted'), res, 200); 
 }
