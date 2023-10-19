@@ -1,5 +1,4 @@
 const http = require('http');
-const Message = require('./models/message')
 const Info = require('./models/info')
 const messagesService = require('./services/messages-service');
 const port = 3000;
@@ -31,6 +30,8 @@ server.listen(port, function(error) {
     console.log('Server is listening on port ' + port)
   }
 });
+
+// ***** HELP METHODS ***** //
 
 function handleReadAll(res) {
   
