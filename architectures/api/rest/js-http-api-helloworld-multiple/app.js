@@ -4,11 +4,14 @@ const port = 3000;
 const server = http.createServer((req, res) => {
 
   var method = req.method.toLocaleLowerCase();
-  var message = `Hello World by method ${method}`;
 
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end(message);
+  if ('get' == method && '/' == req.url) {
+    displayMessage('Hello World Index', res, 200);
+  } else if ('get' == method && '/helloworld' == req.url) {
+    displayMessage('Hello World Message', res, 200);
+  } else {
+    displayMessage('Resource Not Found', res, 404);
+  }
 
 });
 
@@ -19,3 +22,11 @@ server.listen(port, function(error) {
     console.log('Server is listening on port ' + port)
   }
 });
+
+function displayMessage(message, res, statusCode) {
+
+  res.statusCode = statusCode;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end(message);
+
+}
