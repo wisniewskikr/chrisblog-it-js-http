@@ -53,6 +53,10 @@ function displayMessage(json, res, statusCode) {
 }
 
 function handleReadAll(res) {
+  if (messages.length == 0) {
+    displayMessage(new Info('There is no message yet'), res, 200);
+    return;
+  }
   displayMessage(messages, res, 200);
 }
 
@@ -63,7 +67,11 @@ function handleRead(req, res) {
     displayMessage(new Info('Specific ID Not Found'), res, 200);
     return;
   }
-  const message = messages.find((c) => c.id === messageId)
+  const message = messages.find((c) => c.id === messageId);
+  if (message == null) {
+    displayMessage(new Info('Specific Message Not Found'), res, 200);
+    return;
+  }
   displayMessage(message, res, 200);
 }
 
