@@ -28,18 +28,18 @@ DESCRIPTION
 -----------
 
 ##### Goal
-The goal of this project is to present how to create an application type **GUI** in **JavaScript** programming language with usage **http** library. This application consists of **single** HTTP page and displays **Hello World** message.
+The goal of this project is to present how to create an application type **GUI HTML** in **JavaScript** programming language with usage **http** library. This application consists of **single** HTTP page and displays **Hello World** message.
 
 ##### Terminology
 Terminology explanation:
 * **JavaScript**: is a scripting or programming language that allows you to implement complex features on web pages or to implement web applications.
-* **GUI**: it's an abbreviation for Graphical User Interface. It enables user to interact with application.
+* **GUI HTML**: it's an abbreviation for Graphical User Interface. It enables user to interact with application. GUI HTML means that user interacts with application via html web pag.
 * **http library**: is JavaScript library which enables to start web server.
 
 ##### Flow
 The following flow takes place in this project:
-1. User via any http browser sends request to application for the content.
-1. Application sends back response to user via http browser with message
+1. User via any html browser sends request to application for the content.
+1. Application sends back response to user via html browser with message
 
 ##### Launch
 To launch this application please make sure that the **Preconditions** are met and then follow instructions from **Usage** section.
