@@ -24,7 +24,9 @@ const server = http.createServer((req, res) => {
   var method = req.method.toLocaleLowerCase();
 
   if ('get' == method && '/' == req.url) {
-    displayMessage(messages, res, 200);
+    handleReadAll(res);
+  } else if ('get' == method) {
+    handleRead(req, res);
   } else {
     displayMessage(new Error('Resource Not Found'), res, 404);
   }
@@ -45,4 +47,15 @@ function displayMessage(json, res, statusCode) {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(json));
 
+}
+
+function handleReadAll(res) {
+  displayMessage(messages, res, 200);
+}
+
+function handleRead(req, res) {
+  const id = req.url.split("/")[1];
+  const messageId = parseInt(id);
+  const message = messages.find((c) => c.id === messageId)
+  displayMessage(message, res, 200);
 }
