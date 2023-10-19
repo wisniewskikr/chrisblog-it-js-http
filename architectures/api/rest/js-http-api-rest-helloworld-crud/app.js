@@ -93,7 +93,7 @@ function handleUpdate(req, res) {
       return; 
     }
     messagesService.update(message);
-    displayMessage(new Info('New Message was updated'), res, 200);
+    displayMessage(new Info('Message was updated'), res, 200);
   });
 
 }
