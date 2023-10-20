@@ -28,7 +28,7 @@ function displayMessagesList(data) {
 
     var list = "";
     for(i=0; i<data.length; i++){
-        list +="<li>" + data[i].text + "</li>";
+        list += `<input type='radio' name='messages' value='${data[i].id}'>${data[i].text}</input>`;
     }
     $("#messages").append(list);
 
