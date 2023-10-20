@@ -6,10 +6,10 @@ module.exports = {
       
         let messages = messagesService.getAll();
   
-        if (messages.length == 0) {
-            displayMessage(new Info('There is no message yet'), res, 200);
-            return;
-        }
+        // if (messages.length == 0) {
+        //     displayMessage(new Info('There is no message yet'), res, 200);
+        //     return;
+        // }
 
         displayMessage(messages, res, 200);
 
