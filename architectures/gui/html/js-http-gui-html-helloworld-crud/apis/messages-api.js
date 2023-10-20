@@ -32,7 +32,6 @@ module.exports = {
             body += chunk;
         });
         req.on('end', () => {
-            body = body.replaceAll("\\", "").replaceAll("\"{", "{").replaceAll("}\"", "}");
             const message = JSON.parse(body);
             messagesService.add(message);
             displayMessage(null, res, 200);
