@@ -16,13 +16,14 @@ $( document ).ready(function() {
         let text = $('#text').val();
         let json = JSON.parse(`{"id": ${id}, "text": "${text}"}`);
 
-        $.put( 
-            "http://localhost:3000/api/update", 
-            JSON.stringify(json),
-            function (data) {
+        $.ajax({
+            url: 'http://localhost:3000/api/update',
+            type: 'PUT',
+            data: JSON.stringify(json),
+            success: function(result) {
                 window.location.replace("http://localhost:3000/");
             }
-        );
+        });
         
     });
     

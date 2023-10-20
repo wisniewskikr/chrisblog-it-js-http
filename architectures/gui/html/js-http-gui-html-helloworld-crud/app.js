@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
     messagesApi.handleCreate(req, res);
     return;
   } else if ('put' == method && req.url.startsWith('/api/update')) {
-    messagesApi.handleCreate(req, res);
+    messagesApi.handleUpdate(req, res);
     return;
   }
 
