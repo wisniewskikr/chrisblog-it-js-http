@@ -10,6 +10,9 @@ const server = http.createServer((req, res) => {
   if ('get' == method && '/api/' == req.url) {
     messagesApi.handleReadAll(res);
     return;
+  } else if ('get' == method && req.url.startsWith('/api/view')) {
+    messagesApi.handleRead(req, res);
+    return;
   }
 
   if (req.url.startsWith('/frontend/js')) {

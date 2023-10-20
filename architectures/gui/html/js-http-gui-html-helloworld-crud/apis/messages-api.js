@@ -5,13 +5,24 @@ module.exports = {
     handleReadAll: function (res) {
       
         let messages = messagesService.getAll();
-  
-        // if (messages.length == 0) {
-        //     displayMessage(new Info('There is no message yet'), res, 200);
-        //     return;
-        // }
-
         displayMessage(messages, res, 200);
+
+    },
+    handleRead: function (req, res) {
+
+        const messageId = parseInt(req.url.split("/")[3]);
+        if (isNaN(messageId)) {
+            displayMessage(null, res, 404);
+            return;
+        }
+
+        const message = messagesService.getById(messageId);
+        if (message == null) {
+            displayMessage(null, res, 404);
+            return;
+        }
+
+        displayMessage(message, res, 200);
 
     }
 }
