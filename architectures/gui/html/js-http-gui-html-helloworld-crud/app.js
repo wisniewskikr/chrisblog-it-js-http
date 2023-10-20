@@ -1,9 +1,16 @@
 const http = require('http');
 const fs = require('fs');
-const messagesService = require('./services/messages-service');
+const messagesApi = require('./apis/messages-api');
 const port = 3000;
 
 const server = http.createServer((req, res) => {
+
+  var method = req.method.toLocaleLowerCase();
+
+  if ('get' == method && '/api/' == req.url) {
+    messagesApi.handleReadAll(res);
+    return;
+  }
 
   if (req.url.startsWith('/frontend/js')) {
     displayPage(req.url.substring(1), 'text/javascript', res);
