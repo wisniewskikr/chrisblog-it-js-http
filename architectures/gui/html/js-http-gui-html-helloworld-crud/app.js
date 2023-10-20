@@ -1,13 +1,14 @@
 const http = require('http');
 const fs = require('fs');
+const messagesService = require('./services/messages-service');
 const port = 3000;
 
 const server = http.createServer((req, res) => {
 
   if ('/' == req.url) {
-    displayPage('frontend/init.html', res);
-  } else if ('/helloworld' == req.url) {
-    displayPage('frontend/helloworld.html', res);
+    displayPage('frontend/list.html', res);
+  // } else if ('/helloworld' == req.url) {
+  //   displayPage('frontend/helloworld.html', res);
   } else {
     displayPage('frontend/404.html', res);
   }
