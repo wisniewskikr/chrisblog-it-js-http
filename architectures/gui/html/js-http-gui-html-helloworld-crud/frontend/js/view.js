@@ -5,7 +5,8 @@ $( document ).ready(function() {
     
     $.get( "http://localhost:3000/api/view/" + id, function( data ) {
 
-        alert(data);
+        $('#id').val(data.id);
+        $('#text').val(data.text);
         
     });
 
