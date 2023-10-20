@@ -37,7 +37,26 @@ module.exports = {
             displayMessage(null, res, 200);
         });
 
+    },
+    handleUpdate: function (req, res) {
+
+        let body = '';
+        req.on('data', (chunk) => {
+            body += chunk;
+        });
+        req.on('end', () => {
+            const message = JSON.parse(body);
+            const messageCurrent = messagesService.getById(message.id);
+            if (!messageCurrent) {
+            displayMessage(null, res, 404);
+            return; 
+            }
+            messagesService.update(message);
+            displayMessage(null, res, 200);
+        });
+
     }
+
 }
 
 function displayMessage(json, res, statusCode) {

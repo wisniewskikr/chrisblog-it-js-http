@@ -16,6 +16,9 @@ const server = http.createServer((req, res) => {
   } else if ('post' == method && req.url.startsWith('/api/create')) {
     messagesApi.handleCreate(req, res);
     return;
+  } else if ('put' == method && req.url.startsWith('/api/update')) {
+    messagesApi.handleCreate(req, res);
+    return;
   }
 
   if (req.url.startsWith('/frontend/js')) {
@@ -28,7 +31,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/view')) {
     displayPage('frontend/html/view.html', 'text/html', res);
   } else if (req.url.startsWith('/create')) {
-    displayPage('frontend/html/create.html', 'text/html', res);  
+    displayPage('frontend/html/create.html', 'text/html', res); 
+  } else if (req.url.startsWith('/update')) {
+    displayPage('frontend/html/update.html', 'text/html', res);   
   } else {
     displayPage('frontend/html/404.html', 'text/html', res);
   }
