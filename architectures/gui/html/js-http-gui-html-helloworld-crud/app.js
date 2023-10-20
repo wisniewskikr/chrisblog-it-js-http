@@ -5,8 +5,12 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
 
-  var method = req.method.toLocaleLowerCase();
+  if (req.url.startsWith('/frontend/js')) {
+    displayPage(req.url.substring(1), 'text/javascript', res);
+    return;
+  } 
 
+  var method = req.method.toLocaleLowerCase();
   if ('get' == method && '/api/' == req.url) {
     messagesApi.handleReadAll(res);
     return;
@@ -21,11 +25,6 @@ const server = http.createServer((req, res) => {
     return;
   } else if ('delete' == method && req.url.startsWith('/api/delete')) {
     messagesApi.handleDelete(req, res);
-    return;
-  }
-
-  if (req.url.startsWith('/frontend/js')) {
-    displayPage(req.url.substring(1), 'text/javascript', res);
     return;
   } 
   

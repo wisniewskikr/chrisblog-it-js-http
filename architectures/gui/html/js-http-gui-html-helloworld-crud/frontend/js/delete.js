@@ -11,16 +11,20 @@ $( document ).ready(function() {
     });
 
     $('#delete-link').click(function(){
-        
-        let id = $('#id').val();
 
-        $.ajax({
-            url: 'http://localhost:3000/api/delete/' + id,
-            type: 'DELETE',
-            success: function(result) {
-                window.location.replace("http://localhost:3000/");
-            }
-        });
+        if(confirm("Are you sure you want to delete this message?")){
+            
+            let id = $('#id').val();
+
+            $.ajax({
+                url: 'http://localhost:3000/api/delete/' + id,
+                type: 'DELETE',
+                success: function(result) {
+                    window.location.replace("http://localhost:3000/");
+                }
+            });
+
+        }        
         
     });
 
