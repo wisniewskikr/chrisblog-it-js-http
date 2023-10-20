@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
     messagesApi.handleRead(req, res);
     return;
   } else if ('post' == method && req.url.startsWith('/api/create')) {
-    messagesApi.handleCreate(req);
+    messagesApi.handleCreate(req, res);
     return;
   }
 

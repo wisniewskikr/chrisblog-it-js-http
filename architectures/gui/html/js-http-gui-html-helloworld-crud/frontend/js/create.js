@@ -6,12 +6,12 @@ $( document ).ready(function() {
         let text = $('#text').val();
         $.post( 
             "http://localhost:3000/api/create", 
-            JSON.stringify(`{"id": ${id}, "text": "${text}"}`)
-            // ,function (){
-            //     $('#back-link').click();
-            // } 
-            );        
-
+            JSON.stringify(`{"id": ${id}, "text": "${text}"}`),
+            function (data) {
+                window.location.replace("http://localhost:3000/");
+            }
+        );
+        
     });
     
 });

@@ -25,7 +25,7 @@ module.exports = {
         displayMessage(message, res, 200);
 
     },
-    handleCreate: function (req) {
+    handleCreate: function (req, res) {
 
         let body = '';
         req.on('data', (chunk) => {
@@ -35,6 +35,7 @@ module.exports = {
             body = body.replaceAll("\\", "").replaceAll("\"{", "{").replaceAll("}\"", "}");
             const message = JSON.parse(body);
             messagesService.add(message);
+            displayMessage(null, res, 200);
         });
 
     }
