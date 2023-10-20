@@ -41,5 +41,6 @@ function handleRadioClick() {
     
     let id = $('input[type="radio"]:checked').val();
     $("#view-link").attr("href", "http://localhost:3000/view?id=" + id);
+    $("#create-link").attr("href", "http://localhost:3000/create");
     
 }

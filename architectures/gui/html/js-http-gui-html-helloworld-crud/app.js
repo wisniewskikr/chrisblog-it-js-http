@@ -24,6 +24,8 @@ const server = http.createServer((req, res) => {
     displayPage('frontend/html/list.html', 'text/html', res);
   } else if (req.url.startsWith('/view')) {
     displayPage('frontend/html/view.html', 'text/html', res);
+  } else if (req.url.startsWith('/create')) {
+    displayPage('frontend/html/create.html', 'text/html', res);  
   } else {
     displayPage('frontend/html/404.html', 'text/html', res);
   }
