@@ -28,13 +28,18 @@ function displayMessagesList(data) {
 
     var list = "";
     for(i=0; i<data.length; i++){
-        list += `<input type='radio' name='messages' value='${data[i].id}' onclick='enableMenuLinks()'>${data[i].text}</input></br>`;
+        list += `<input type='radio' name='messages' value='${data[i].id}' onclick='handleRadioClick()'>${data[i].text}</input></br>`;
     }
     $("#messages").append(list);
 
 }
 
-function enableMenuLinks() {
+function handleRadioClick() {
+
     $("#menu-texts").hide();
-    $("#menu-links").show();       
+    $("#menu-links").show(); 
+    
+    let id = $('input[type="radio"]:checked').val();
+    $("#view-link").attr("href", "http://localhost:3000/view?id=" + id);
+    
 }
