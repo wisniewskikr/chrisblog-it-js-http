@@ -19,6 +19,9 @@ const server = http.createServer((req, res) => {
   } else if ('put' == method && req.url.startsWith('/api/update')) {
     messagesApi.handleUpdate(req, res);
     return;
+  } else if ('delete' == method && req.url.startsWith('/api/delete')) {
+    messagesApi.handleDelete(req, res);
+    return;
   }
 
   if (req.url.startsWith('/frontend/js')) {
@@ -33,7 +36,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/create')) {
     displayPage('frontend/html/create.html', 'text/html', res); 
   } else if (req.url.startsWith('/update')) {
-    displayPage('frontend/html/update.html', 'text/html', res);   
+    displayPage('frontend/html/update.html', 'text/html', res); 
+  } else if (req.url.startsWith('/delete')) {
+    displayPage('frontend/html/delete.html', 'text/html', res);    
   } else {
     displayPage('frontend/html/404.html', 'text/html', res);
   }

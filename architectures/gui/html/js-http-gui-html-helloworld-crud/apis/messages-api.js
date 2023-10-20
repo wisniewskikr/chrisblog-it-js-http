@@ -55,6 +55,24 @@ module.exports = {
             displayMessage(null, res, 200);
         });
 
+    },
+    handleDelete: function (req, res) {
+
+        const messageId = parseInt(req.url.split("/")[3]);
+        if (isNaN(messageId)) {
+            displayMessage(null, res, 404);
+            return;
+        }
+
+        const messageCurrent = messagesService.getById(messageId);
+        if (!messageCurrent) {
+            displayMessage(null, res, 404);
+            return; 
+        }
+
+        messagesService.delete(messageId);
+        displayMessage(null, res, 200);
+
     }
 
 }
