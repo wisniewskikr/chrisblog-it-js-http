@@ -7,7 +7,10 @@ const server = http.createServer((req, res) => {
 
   if (req.url.startsWith('/frontend/js')) {
     displayPage(req.url.substring(1), 'text/javascript', res);
-  } else if ('/' == req.url) {
+    return;
+  } 
+  
+  if ('/' == req.url) {
     displayPage('frontend/html/list.html', 'text/html', res);  
   } else {
     displayPage('frontend/html/404.html', 'text/html', res);
