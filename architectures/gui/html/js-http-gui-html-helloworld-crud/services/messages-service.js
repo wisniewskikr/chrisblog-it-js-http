@@ -1,4 +1,4 @@
-let messages = [];
+let messages = [{"id": 1, "text": "Hello World"}];
 
 module.exports = {
     getAll: function () {
