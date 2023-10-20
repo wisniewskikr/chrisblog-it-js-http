@@ -28,8 +28,13 @@ function displayMessagesList(data) {
 
     var list = "";
     for(i=0; i<data.length; i++){
-        list += `<input type='radio' name='messages' value='${data[i].id}'>${data[i].text}</input>`;
+        list += `<input type='radio' name='messages' value='${data[i].id}' onclick='enableMenuLinks()'>${data[i].text}</input></br>`;
     }
     $("#messages").append(list);
 
+}
+
+function enableMenuLinks() {
+    $("#menu-texts").hide();
+    $("#menu-links").show();       
 }
