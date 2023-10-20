@@ -24,6 +24,19 @@ module.exports = {
 
         displayMessage(message, res, 200);
 
+    },
+    handleCreate: function (req) {
+
+        let body = '';
+        req.on('data', (chunk) => {
+            body += chunk;
+        });
+        req.on('end', () => {
+            body = body.replaceAll("\\", "").replaceAll("\"{", "{").replaceAll("}\"", "}");
+            const message = JSON.parse(body);
+            messagesService.add(message);
+        });
+
     }
 }
 

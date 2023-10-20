@@ -13,6 +13,9 @@ const server = http.createServer((req, res) => {
   } else if ('get' == method && req.url.startsWith('/api/view')) {
     messagesApi.handleRead(req, res);
     return;
+  } else if ('post' == method && req.url.startsWith('/api/create')) {
+    messagesApi.handleCreate(req);
+    return;
   }
 
   if (req.url.startsWith('/frontend/js')) {
