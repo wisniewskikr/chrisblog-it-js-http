@@ -5,12 +5,12 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
 
-  if ('/' == req.url) {
-    displayPage('frontend/list.html', res);
-  // } else if ('/helloworld' == req.url) {
-  //   displayPage('frontend/helloworld.html', res);
+  if (req.url.startsWith('/frontend/js')) {
+    displayPage(req.url.substring(1), 'text/javascript', res);
+  } else if ('/' == req.url) {
+    displayPage('frontend/html/list.html', 'text/html', res);  
   } else {
-    displayPage('frontend/404.html', res);
+    displayPage('frontend/html/404.html', 'text/html', res);
   }
 
 });
@@ -23,10 +23,10 @@ server.listen(port, function(error) {
   }
 });
 
-function displayPage(filePath, res) {
+function displayPage(filePath, contentType, res) {
 
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Content-Type', contentType);
   fs.readFile(filePath, function(error, data){
     if (error) {
       res.writeHead(404);
