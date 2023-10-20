@@ -18,7 +18,9 @@ const server = http.createServer((req, res) => {
   } 
   
   if ('/' == req.url) {
-    displayPage('frontend/html/list.html', 'text/html', res);  
+    displayPage('frontend/html/list.html', 'text/html', res);
+  } else if (req.url.startsWith('/view')) {
+    displayPage('frontend/html/view.html', 'text/html', res);
   } else {
     displayPage('frontend/html/404.html', 'text/html', res);
   }
