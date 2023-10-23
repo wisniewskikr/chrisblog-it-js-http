@@ -8,6 +8,11 @@ USAGE COMMANDS
 Usage steps:
 1. In a command line tool start application with `node app.js`
 1. In a http browser (e.g. Chrome) visit `http://localhost:3000`
+   * Expected **Init** page
+1. In a http browser (e.g. Chrome) on **Init** page click **here** link
+   * Expected **Hello World** page
+1. In a http browser (e.g. Chrome) on **Hello World** page click **Back** link
+   * Expected **Init** page
 1. Clean up environment 
      * In a command line tool stop application with `ctrl + C`
 
