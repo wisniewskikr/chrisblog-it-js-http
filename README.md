@@ -1,15 +1,14 @@
-Structure:
-* architectures
-  * api
-    * rest	  
-  * gui
-	* http
-	
+DESCRIPTION
+-----------
 
-* js-http-api-rest-helloworld-single
-* js-http-api-rest-helloworld-multiple
-* js-http-api-rest-helloworld-crud
-* js-http-gui-html-helloworld-single
-* js-http-gui-html-helloworld-multiple
-* js-http-gui-html-helloworld-crud
-* js-http-gui-html-helloworld-single-css-js-image
+This Git Repository contains some basic examples of applications - API and GUI - created in **javascript** programming language with usage **http** framework.
+
+This Git Repository contains following projects:
+* `architectures/api/rest/js-http-api-rest-helloworld-single`: The goal of this project is to present how to create an application type **API REST** in **JavaScript** programming language with usage **http** library. This application consists of **single** API endpoint and displays **Hello World** message.
+* `architectures/api/rest/js-http-api-rest-helloworld-multiple`: The goal of this project is to present how to create an application type **API REST** in **JavaScript** programming language with usage **http** library. This application consists of **multiple** API endpoints: endpoint **index** and endpoint **helloworld**.
+* `architectures/api/rest/js-http-api-rest-helloworld-crud`: The goal of this project is to present how to implement **CRUD** (Create, Read, Update, Delete) operations in an application type **API REST** in **JavaScript** programming language with usage **http** library. This application enables adding, reading, updating and deleting messages.
+* `architectures/api/rest/js-http-api-rest-helloworld-example`: The goal of this project is to present how to create an example application type **API REST** in **JavaScript** programming language with usage **http** library. This application consists of **single** API endpoint and displays **Hello World** message with user **name** and HTTP **method**. Moreover this application can display result in **plain** or **json** format.
+* `architectures/gui/html/js-http-gui-html-helloworld-single`: The goal of this project is to present how to create an application type **GUI HTML** in **JavaScript** programming language with usage **http** library. This application consists of **single** HTTP page and displays **Hello World** message.
+* `architectures/gui/html/js-http-gui-html-helloworld-multiple`: The goal of this project is to present how to create an application type **GUI HTML** in **JavaScript** programming language with usage **http** library. This application consists of **multiple** HTML pages: first page **Init** contains link to second page and second page **Hello World** displays message.
+* `architectures/gui/html/js-http-gui-html-helloworld-crud`: The goal of this project is to present how to implement **CRUD** (Create, Read, Update, Delete) operations in an application type **GUI HTML** in **JavaScript** programming language with usage **http** library. This application enables adding, reading, updating and deleting messages.
+* `architectures/gui/html/js-http-gui-html-helloworld-example`: The goal of this project is to present how to create an **example** application type **GUI HTML** in **JavaScript** programming language with usage **http** library. This application consists of HTML page which includes following frontend elements: **html**, **javascript**, **css** and **images**.
